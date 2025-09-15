@@ -38,7 +38,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew clean test jacocoTestReport
+        run: ./gradlew clean build jacocoTestReport
 
       # Paso 5: Subir Reporte JaCoCo
       - name: Upload JaCoCo Report
@@ -47,7 +47,3 @@ jobs:
           name: jacoco-report
           path: build/reports/jacoco/test/html/
           retention-days: 7
-
-      # Paso 6: Comprobar que empaqueta
-      - name: Package Spring Boot app
-        run: ./gradlew clean build -x test
